@@ -1,14 +1,14 @@
 {
-  "name": "printerboi-webgl",
+  "name": "printerboi",
   "version": "0.0.0",
-  "description": "Print from webgl",
+  "description": "Print from WebGL",
   "main": "index.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "examples": "npx bsqr -s ../docs/webgl",
-    "copy-to-docs": "cp index.js \"../docs/printerboi-webgl/printerboy-webgl-`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | xargs`.js\"",
+    "examples": "npx bsqr -s ./docs/",
+    "copy-to-docs": "cp index.js \"./docs//printerboy-`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | xargs`.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
