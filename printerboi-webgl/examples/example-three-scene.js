@@ -3,8 +3,16 @@ import PrinterBoi from './../index.js';
 // import { GLTFLoader } from './../GLTFLoader'
 // import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
 
+const CANVAS_SCALE = 1.0
+function getWidth() {
+    return window.innerWidth * CANVAS_SCALE
+}
+function getHeight() {
+    return window.innerHeight * CANVAS_SCALE
+}
+
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 75, getWidth()  / getHeight(), 0.1, 1000 );
 let gltfLoader = new THREE.GLTFLoader();
 let trackball, gameboyModel;
 
@@ -13,8 +21,11 @@ let trackball, gameboyModel;
 // TODO: Figure out how to do this for WebGL contexts without preserveDrawingBuffer turned on!
 // 1: https://stackoverflow.com/questions/45221542/html-save-webgl-canvas-as-image#comment77422119_45223017
 var renderer = new THREE.WebGLRenderer({ alpha: true, preserveDrawingBuffer: true });
-renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize( getWidth(), getHeight() );
+
+let printerButtonEl = addPrinterButton()
 document.body.appendChild( renderer.domElement );
+
 trackball = new Trackball(renderer.domElement, {startSpin: 0.035});
 
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
@@ -65,14 +76,21 @@ animate();
 window.addEventListener( 'resize', onWindowResize, false );
 
 function onWindowResize(){
-
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = getWidth() / getHeight();
     camera.updateProjectionMatrix();
-
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( getWidth(), getHeight());
 }
 
-document.body.onclick = () => {
+function addPrinterButton() {
+    let printerButton = document.createElement('button')
+    printerButton.classList.add('printerButton')
+    printerButton.innerHTML = `<img src="printer.png" alt="printer image"/>`
+    document.body.appendChild(printerButton)
+    return printerButton
+}
+
+
+printerButtonEl.onclick = () => {
     console.log('hey')
     let domTexture = new THREE.Texture(renderer.domElement)
     // window.domTexture = domTexture
@@ -80,3 +98,4 @@ document.body.onclick = () => {
     let pb = new PrinterBoi(domTexture)
     pb.printPopup()
 }
+
