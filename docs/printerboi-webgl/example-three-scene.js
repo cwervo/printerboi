@@ -20,7 +20,7 @@ let trackball, gameboyModel;
 // Can cause artifacts[1], but should be okay for now with relatively simple scenes.
 // TODO: Figure out how to do this for WebGL contexts without preserveDrawingBuffer turned on!
 // 1: https://stackoverflow.com/questions/45221542/html-save-webgl-canvas-as-image#comment77422119_45223017
-var renderer = new THREE.WebGLRenderer({ alpha: true, preserveDrawingBuffer: true });
+var renderer = new THREE.WebGLRenderer({ alpha: false, preserveDrawingBuffer: true });
 renderer.setSize( getWidth(), getHeight() );
 
 let printerButtonEl = addPrinterButton()
@@ -34,6 +34,7 @@ var material = new THREE.MeshBasicMaterial( { color: 0x2EAFAC, wireframe: true }
 var light = new THREE.PointLight( 0xFFFFFF, 1, 100 );
 light.position.set( 1, 1, 1 );
 scene.add( light );
+scene.background = new THREE.Color(0xFFFFFF)
 
 // -------
 // Load a glTF resource
