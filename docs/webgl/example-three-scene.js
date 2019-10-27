@@ -1,6 +1,8 @@
+// import {THREE}from './three.module.js'
+// import THREE from '../third_party/three.js';
 import PrinterBoi from './printerboy-webgl-0.0.0.js';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-// import { GLTFLoader } from './../GLTFLoader'
+// import { GLTFLoader } from './third_party/GLTFLoader.js'
 // import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
 
 const CANVAS_SCALE = 1.0
@@ -34,6 +36,7 @@ var material = new THREE.MeshBasicMaterial( { color: 0x2EAFAC, wireframe: true }
 var light = new THREE.PointLight( 0xFFFFFF, 1, 100 );
 light.position.set( 1, 1, 1 );
 scene.add( light );
+// Sets the GL clear color to ensure background is white
 scene.background = new THREE.Color(0xFFFFFF)
 
 // -------

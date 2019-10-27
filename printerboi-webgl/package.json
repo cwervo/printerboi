@@ -7,8 +7,8 @@
     "example": "examples"
   },
   "scripts": {
-    "examples": "npx bsqr -s ../docs/printerboi-webgl",
-    "copy-to-docs": "cp index.js \"../docs/printerboi-webgl/printerboy-webgl-`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | xargs`.js\"",
+    "examples": "npx bsqr -s ../docs/webgl",
+    "copy-to-docs": "cp index.js \"../docs/webgl/printerboy-webgl-`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | xargs`.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/cwervo/printerboi#readme",
   "devDependencies": {
     "bsqr": "^1.0.1",
+    "parcel-bundler": "^1.12.4",
     "three": "^0.109.0",
     "three-gltf-loader": "^1.109.0"
   }
