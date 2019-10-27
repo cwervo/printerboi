@@ -1,0 +1,22 @@
+{
+  "name": "printerboi-webgl",
+  "version": "0.0.0",
+  "description": "Print from webgl",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwervo/printerboi.git"
+  },
+  "author": "Andrés Cuervo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwervo/printerboi/issues"
+  },
+  "homepage": "https://github.com/cwervo/printerboi#readme"
+}
