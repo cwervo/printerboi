@@ -7,6 +7,7 @@
     "example": "examples"
   },
   "scripts": {
+    "examples": "npx bsqr examples",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/cwervo/printerboi/issues"
   },
-  "homepage": "https://github.com/cwervo/printerboi#readme"
+  "homepage": "https://github.com/cwervo/printerboi#readme",
+  "devDependencies": {
+    "bsqr": "^1.0.1",
+    "three": "^0.109.0",
+    "three-gltf-loader": "^1.109.0"
+  }
 }

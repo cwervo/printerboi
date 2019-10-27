@@ -1,0 +1,82 @@
+import PrinterBoi from './../index.js';
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+// import { GLTFLoader } from './../GLTFLoader'
+// import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+let gltfLoader = new THREE.GLTFLoader();
+let trackball, gameboyModel;
+
+// Note 'preserveDrawingBuffer: true' below, this is important!
+// Can cause artifacts[1], but should be okay for now with relatively simple scenes.
+// TODO: Figure out how to do this for WebGL contexts without preserveDrawingBuffer turned on!
+// 1: https://stackoverflow.com/questions/45221542/html-save-webgl-canvas-as-image#comment77422119_45223017
+var renderer = new THREE.WebGLRenderer({ alpha: true, preserveDrawingBuffer: true });
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+trackball = new Trackball(renderer.domElement, {startSpin: 0.035});
+
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0x2EAFAC, wireframe: true } );
+
+var light = new THREE.PointLight( 0xFFFFFF, 1, 100 );
+light.position.set( 1, 1, 1 );
+scene.add( light );
+
+// -------
+// Load a glTF resource
+gltfLoader.load(
+// resource URL
+    'gameboy.glb',
+    // called when the resource is loaded
+    function ( gltf ) {
+        gameboyModel = gltf.scene
+        scene.add( gltf.scene );
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Scene
+        gltf.scenes; // Array<THREE.Scene>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+    // called while loading is progressing
+    function ( xhr ) { console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ); },
+    // called when loading has errors
+    function ( error ) { console.log( 'An error happened' ); }
+);
+
+camera.position.z = 2;
+
+var animate = function () {
+    requestAnimationFrame( animate );
+
+    const m = new THREE.Matrix4();
+    const mat = trackball.getMatrix();
+    m.fromArray(mat)
+    if (gameboyModel != undefined) {
+        gameboyModel.rotation.setFromRotationMatrix(m)
+    }
+
+    renderer.render( scene, camera );
+};
+
+animate();
+
+window.addEventListener( 'resize', onWindowResize, false );
+
+function onWindowResize(){
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+document.body.onclick = () => {
+    console.log('hey')
+    let domTexture = new THREE.Texture(renderer.domElement)
+    // window.domTexture = domTexture
+    // Need to figure out how to get this from WebGL rather than just THREE!!
+    let pb = new PrinterBoi(domTexture)
+    pb.printPopup()
+}
