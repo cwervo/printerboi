@@ -1,6 +1,6 @@
 // import {THREE}from './three.module.js'
 // import THREE from '../third_party/three.js';
-import PrinterBoi from './printerboy-webgl-0.0.0.js';
+import PrinterBoi from '../index.js';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { GLTFLoader } from './third_party/GLTFLoader.js'
 // import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
