@@ -1,4 +1,4 @@
-import PrinterBoi from './../index.js';
+import PrinterBoi from './printerboy-webgl-0.0.0.js';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { GLTFLoader } from './../GLTFLoader'
 // import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
