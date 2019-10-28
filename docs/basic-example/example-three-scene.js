@@ -1,6 +1,6 @@
 // import {THREE}from './three.module.js'
 // import THREE from '../third_party/three.js';
-import PrinterBoi from '../printerboi-0.0.0.js';
+import PrinterBoi from '../printerboi-0.0.1.js';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { GLTFLoader } from './third_party/GLTFLoader.js'
 // import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
@@ -22,7 +22,13 @@ let trackball, gameboyModel;
 // Can cause artifacts[1], but should be okay for now with relatively simple scenes.
 // TODO: Figure out how to do this for WebGL contexts without preserveDrawingBuffer turned on!
 // 1: https://stackoverflow.com/questions/45221542/html-save-webgl-canvas-as-image#comment77422119_45223017
-var renderer = new THREE.WebGLRenderer({ alpha: false, preserveDrawingBuffer: true });
+var renderer = new THREE.WebGLRenderer({
+    antialias: false,
+    transparent: false,
+    preserveDrawingBuffer: true,
+    powerPreference: 'low-power',
+    failIfMajorPerformanceCaveat: true
+});
 renderer.setSize( getWidth(), getHeight() );
 
 let printerButtonEl = addPrinterButton()
