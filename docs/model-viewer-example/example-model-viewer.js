@@ -1,5 +1,3 @@
-// import {THREE}from './three.module.js'
-// import THREE from '../third_party/three.js';
 import PB from '../printerboi-dist.js';
 import 'https://unpkg.com/@google/model-viewer@0.7.2/dist/model-viewer.js';
 
@@ -28,8 +26,6 @@ function addPrinterButton() {
 
 let printerButtonEl = addPrinterButton()
 printerButtonEl.onclick = () => {
-    let domTexture = new THREE.Texture(document.querySelector('model-viewer').shadowRoot.querySelector('canvas'))
-    console.log("TEST", document.querySelector('model-viewer').shadowRoot.querySelector('canvas'))
     let pb = new PB(document.querySelector('model-viewer').shadowRoot.querySelector('canvas'))
     pb.printPopup()
 }

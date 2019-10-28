@@ -1,4 +1,5 @@
 import PrinterBoi from '../printerboi-dist.js';
+import * as gcpGadget from './gcp-gadget.js'
 
 const CANVAS_SCALE = 1.0
 function getWidth() {
@@ -86,21 +87,34 @@ function onWindowResize(){
 }
 
 function addPrinterButton() {
-    let printerButton = document.createElement('button')
-    printerButton.classList.add('printerButton')
-    printerButton.innerHTML = `<img src="printer.png" alt="printer image"/>`
+    let printerButton = document.createElement('div')
+    printerButton.id = 'printerButton'
+    printerButton.innerHTML = `Hello <img src="printer.png" alt="printer image"/>`
     document.body.appendChild(printerButton)
     return printerButton
 }
 
-
 let pb = new PrinterBoi(renderer.domElement)
 pb.orientation('landscape')
 pb.margin('initial')
-pb.autoclose(false)
-console.log({pb})
+
+let gadget;
+console.log(cloudprint)
+
+gadget = new cloudprint.Gadget();
 
 printerButtonEl.onclick = () => {
-    pb.printPopup()
+    // pb.printPopup()
+    gadget.openPrintDialog();
+    pb.gcpPrint(gadget)
+    // cloud do something like pb.cloudprint(gadet)
+    // and then that calls gadet.setPrintDocument(/*canvas image*/)
 }
 
+// Roll this up into a pb.googleCloudPrint() function
+console.log(gadget)
+gadget.setPrintButton(
+cloudprint.Gadget.createDefaultPrintButton("#printerButton")); // div id to contain the button
+// gadget.setPrintDocument("[document mimetype]", "[document title]", "[document content]", "[encoding] (optional)");
+// gadget.setPrintDocument("url", "Test Page", "https://www.google.com/landing/cloudprint/testpage.pdf");
+// gadget.setPrintDocument("dataUrl", "image", pb.textureToDataURL(), "base64");
