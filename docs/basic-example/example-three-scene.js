@@ -48,7 +48,7 @@ scene.background = new THREE.Color(0xFFFFFF)
 // Load a glTF resource
 gltfLoader.load(
 // resource URL
-    'gameboy.glb',
+    '../models/gameboy.glb',
     // called when the resource is loaded
     function ( gltf ) {
         gameboyModel = gltf.scene
