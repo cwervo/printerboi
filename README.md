@@ -13,7 +13,7 @@ npm i printerboi
 ## Usage
 
 ```javascript
-import PrinterBoi from 'https://unpkg.com/printerboi@0.0.1/index.js';
+import PrinterBoi from 'https://unpkg.com/printerboi@0.0.2/index.js';
 /* or:
 import PrinterBoi from 'printerboi';
    if you're using it from npm
