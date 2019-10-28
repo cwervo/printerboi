@@ -1,6 +1,6 @@
 // import {THREE}from './three.module.js'
 // import THREE from '../third_party/three.js';
-import PrinterBoi from '../printerboi-0.0.1.js';
+import PrinterBoi from '../printerboi-dist.js';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { GLTFLoader } from './third_party/GLTFLoader.js'
 // import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
@@ -101,10 +101,10 @@ function addPrinterButton() {
 
 printerButtonEl.onclick = () => {
     console.log('hey')
-    let domTexture = new THREE.Texture(renderer.domElement)
+    // let domTexture = new THREE.Texture()
     // window.domTexture = domTexture
     // Need to figure out how to get this from WebGL rather than just THREE!!
-    let pb = new PrinterBoi(domTexture)
+    let pb = new PrinterBoi(renderer.domElement)
     pb.printPopup()
 }
 

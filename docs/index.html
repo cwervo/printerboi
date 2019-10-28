@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <title>printerboi docs</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+h1 { letter-spacing: 0.2em; }
+h1::before, h1::after { content: '🖨✨' }
+    </style>
 </head>
 <body>
-    <h1>Not much to see here yet</h1>
+    <h1>printerboi</h1>
     <ul>
         <li>
-            <a href="./basic-example/index.html">Printerboi WebGL 0.0.1 demo</a>
+            <a href="./basic-example/index.html">Printerboi WebGL demo</a>
         </li>
         <li>
             <a href="./model-viewer-example/index.html">Model Viewer Example</a>
         </li>
     </ul>
+
+    <div>
+        The basic pattern is:
+        <pre style="margin: 0 2%; overflow: scroll; background-color: black; color: white;">
+            <code>
+    let pb = new PrinterBoi(/*canvas goes in here*/)
+    pb.printPopup() // this boi does the printing!
+            </code>
+        </pre>
+    </div>
 </body>
 </html>

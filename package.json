@@ -8,7 +8,7 @@
   },
   "scripts": {
     "examples": "npx bsqr -s ./docs/",
-    "copy-to-docs": "rm docs/printerboi-*.js; cp index.js \"./docs//printerboi-`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | xargs`.js\"",
+    "copy-to-docs": "rm docs/printerboi-*.js; cp index.js ./docs/printerboi-dist.js",
     "test": "echo \"No tests for now\""
   },
   "repository": {

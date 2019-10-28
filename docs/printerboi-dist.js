@@ -1,13 +1,15 @@
 export class PrinterBoi {
     constructor(webGLCanvas) {
-        console.log(webGLCanvas)
-        if (webGLCanvas != undefined) this.canvas = webGLCanvas
+        this._version = '0.0.2';
+        if (webGLCanvas != undefined) this._canvas = webGLCanvas
+    }
+    version() {
+        return this._version
     }
     textureToDataURL() {
-        console.log('this.image: ', this.image)
-        return this.canvas.image.toDataURL()
+        return this._canvas.toDataURL()
     }
-    printPopup() {
+    async printPopup() {
         let popup = window.open();
         // popup.focus(); //required for IE
         console.log('hello there')
@@ -15,14 +17,15 @@ export class PrinterBoi {
             <img width="100%" height="100%" src="${this.textureToDataURL()}" />
             </body> </html>`);
         popup.document.close();
-        console.log(popup.document)
+
         popup.focus()
-        {
-            let img = new Image;
-            img.src = this.textureToDataURL();
-            document.body.appendChild(img)
-        }
-        popup.print();
+        let img = new Image;
+        img.src = this.textureToDataURL();
+        document.body.appendChild(img)
+        // When we re-focus to the popup window after printing
+        // close the page
+        popup.onfocus = () => popup.close()
+        popup.print()
     }
 }
 
