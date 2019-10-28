@@ -9,7 +9,7 @@
   "scripts": {
     "examples": "npx bsqr -s ./docs/",
     "copy-to-docs": "rm docs/printerboi-*.js; cp index.js ./docs/printerboi-dist.js",
-    "test": "echo \"No tests for now\""
+    "test": "./test.sh"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "three-gltf-loader": "^1.109.0"
   },
   "dependencies": {
+    "colors": "^1.4.0",
+    "diff": "^4.0.1",
     "np": "^5.1.1"
   }
 }
