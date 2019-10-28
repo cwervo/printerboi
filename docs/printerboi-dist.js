@@ -1,6 +1,6 @@
 export class PrinterBoi {
     constructor(webGLCanvas) {
-        this._version = '0.1.1';
+        this._version = '0.1.0';
         if (webGLCanvas != undefined) this._canvas = webGLCanvas
         this._orientation = 'auto'
         this._margin = '0mm'
