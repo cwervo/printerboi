@@ -22,6 +22,14 @@ import PrinterBoi from 'printerboi';
 // ... set up your THREE canvas & stuff
 let domTexture = new THREE.Texture(renderer.domElement)
 let pb = new PrinterBoi(domTexture)
+
+/* There are a couple things you can set on the print itself */
+// The CSS page orientation, defaults to 'auto'
+pb.orientation('landscape')
+// The page margins, defaults to 'auto' ('auto' removes
+pb.margin('0mm')
+the date & time info)
+
 pb.printPopup()
 ```
 

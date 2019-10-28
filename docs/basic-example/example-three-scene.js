@@ -23,10 +23,10 @@ let trackball, gameboyModel;
 // TODO: Figure out how to do this for WebGL contexts without preserveDrawingBuffer turned on!
 // 1: https://stackoverflow.com/questions/45221542/html-save-webgl-canvas-as-image#comment77422119_45223017
 var renderer = new THREE.WebGLRenderer({
-    antialias: false,
-    transparent: false,
-    preserveDrawingBuffer: true,
-    powerPreference: 'low-power'
+antialias: false,
+transparent: false,
+preserveDrawingBuffer: true,
+powerPreference: 'low-power'
 });
 renderer.setSize( getWidth(), getHeight() );
 
@@ -99,12 +99,12 @@ function addPrinterButton() {
 }
 
 
+let pb = new PrinterBoi(renderer.domElement)
+pb.orientation('landscape')
+pb.margin('initial')
+console.log({pb})
+
 printerButtonEl.onclick = () => {
-    console.log('hey')
-    // let domTexture = new THREE.Texture()
-    // window.domTexture = domTexture
-    // Need to figure out how to get this from WebGL rather than just THREE!!
-    let pb = new PrinterBoi(renderer.domElement)
     pb.printPopup()
 }
 
