@@ -1,6 +1,6 @@
 // import {THREE}from './three.module.js'
 // import THREE from '../third_party/three.js';
-import PrinterBoi from './printerboy-webgl-0.0.0.js';
+import PrinterBoi from '../printerboi-0.0.0.js';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { GLTFLoader } from './third_party/GLTFLoader.js'
 // import * as Trackball from 'https://unpkg.com/gltumble@1.0.1/gltumble.min.js'
@@ -28,7 +28,7 @@ renderer.setSize( getWidth(), getHeight() );
 let printerButtonEl = addPrinterButton()
 document.body.appendChild( renderer.domElement );
 
-trackball = new Trackball(renderer.domElement, {startSpin: 0.035});
+trackball = new Trackball(renderer.domElement, {startSpin: 0.01});
 
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshBasicMaterial( { color: 0x2EAFAC, wireframe: true } );
@@ -60,7 +60,7 @@ gltfLoader.load(
     function ( error ) { console.log( 'An error happened' ); }
 );
 
-camera.position.z = 2;
+camera.position.z = 4;
 
 var animate = function () {
     requestAnimationFrame( animate );

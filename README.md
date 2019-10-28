@@ -1,8 +1,8 @@
 # ✨ PRINTERBOI ✨
 
-![Printerboy screencast](https://media.giphy.com/media/h8fMP2ibxcUPAeN2tC/giphy.gif)
+![Printerboi screencast](https://media.giphy.com/media/h8fMP2ibxcUPAeN2tC/giphy.gif)
 
-Printerboi is a system of modules to print WebGL textures.
+PrinterBoi is a system of modules to print WebGL textures.
 
 # Usage
 

@@ -8,8 +8,8 @@
   },
   "scripts": {
     "examples": "npx bsqr -s ./docs/",
-    "copy-to-docs": "cp index.js \"./docs//printerboy-`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | xargs`.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "copy-to-docs": "cp index.js \"./docs//printerboi-`cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | xargs`.js\"",
+    "test": "echo \"No tests for now\""
   },
   "repository": {
     "type": "git",
