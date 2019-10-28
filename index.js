@@ -21,7 +21,7 @@ export class PrinterBoi {
     }
     generateTitle(){
         const t = new Date();
-        return `${t.getFullYear()}-${t.getMonth()+1}-${t.getDate()}-${Math.trun(performance.now())}`
+        return `${t.getFullYear()}-${t.getMonth()+1}-${t.getDate()}-${Math.trunc(performance.now())}`
     }
     async printPopup() {
         let popup = window.open();
