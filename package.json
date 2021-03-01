@@ -23,7 +23,7 @@
   "homepage": "https://github.com/cwervo/printerboi#readme",
   "devDependencies": {
     "bsqr": "^1.0.1",
-    "three": "^0.109.0",
+    "three": "^0.125.0",
     "three-gltf-loader": "^1.109.0"
   },
   "dependencies": {
